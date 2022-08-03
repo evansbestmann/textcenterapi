@@ -1,24 +1,16 @@
-import urllib3
-from django.core.files.base import ContentFile
-from django.core.files.uploadedfile import InMemoryUploadedFile
+
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-import json
-from rest_framework.response import Response
 from .models import api_img
 from rest_framework import viewsets
-from rest_framework import permissions
 from .serializers import api_imgSerializer
-#########################################
 from PIL import Image, ImageDraw
-import io
-from io import StringIO,BytesIO
+from io import BytesIO
 from django.core.files import File
 
 # Create your views here.
 class api_imgview(viewsets.ModelViewSet):
-    #permission_classes = [permissions.IsAuthenticated]
     queryset = api_img.objects.all()
     serializer_class = api_imgSerializer
 
