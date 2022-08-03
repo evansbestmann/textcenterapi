@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                          <th>title </th>
+                                          <th>view image</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                          <th>title</th>
+                                          <th>view image</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% if queryset %}
+                                        <tr>
+                                          <td>{{ queryset.title}}</td>
+                                          <td><img src="{{queryset.images.url}}"/></td>
+                                            <form method="post" action="/editImage" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <input id="title" type="hidden" class="form-control" value="{{queryset.id}}" name="input_id" placeholder="title"/>
+                                                <div class="d-grid"><button class="btn btn-primary btn-block">view image</button></div>
+                                            </form></td>
+                                        </tr>
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+</body>
+</html>
