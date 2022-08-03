@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-uvkp47ge*_er4m1)v-q0^6xb3mmq9l%f^&_k4f=2x59m6q^59t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =False
 DEBUG_PROPAGATE_EXCEPTIONS = True #TO SEE ERROR LOG IN HEROKU ENV.
-ALLOWED_HOSTS = ['127.0.0.1','localhost','0.0.0.0','xxxxx.com']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','0.0.0.0','textcenter.herokuapp.com']
 
 
 # Application definition
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'testapi',
-    'whitenoise.runserver_nostatic',
+
 
 ]
 
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'textcenterapi.urls'
@@ -129,7 +129,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"#part of heroku config
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
